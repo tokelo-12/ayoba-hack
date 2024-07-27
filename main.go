@@ -14,6 +14,8 @@ func main() {
 
 	router.GET("/gettext", getText)
 
+	router.POST("/createcard", createCard)
+
 	router.Run("localhost:8080")
 
 }
