@@ -1,19 +1,19 @@
 package main
 
-// import (
-// 	"github.com/gin-gonic/gin"
-// )
+import (
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	//auth
 	// Login()
 
-	// router := gin.Default()
+	router := gin.Default()
 
-	// router.POST("/sendtext", sendMsg)
+	router.POST("/sendtext", sendMsg)
 
-	// router.Run("localhost:8080")
+	router.GET("/gettext", getText)
 
-	getText()
+	router.Run("localhost:8080")
 
 }

@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 // [
@@ -29,7 +31,7 @@ type msgRes struct {
 	MessageBlock MessageBlock `json:"message"`
 }
 
-func getText() {
+func getText(c *gin.Context) {
 	url := "https://api.ayoba.me/v1/business/message"
 
 	access, err := Login()
@@ -79,5 +81,7 @@ func getText() {
 	}
 
 	fmt.Println("data: ", data)
+
+	c.JSON(http.StatusOK, data)
 
 }
