@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
 // {
@@ -30,7 +32,8 @@ type RequestData struct {
 	Message Message  `json:"message"`
 }
 
-func sendMsg() {
+func sendMsg(c *gin.Context) {
+	var myparam RequestData
 	access, err := Login()
 
 	if err != nil {
@@ -40,17 +43,28 @@ func sendMsg() {
 	bearerToken := access.Token
 	url := "https://api.ayoba.me/v1/business/message"
 
-	data := RequestData{
-		Msisdns: []string{"+27823235496"},
-		Message: Message{
-			Type: "text",
-			Text: "Yah neh",
-		},
+	// data := RequestData{
+	// 	Msisdns: []string{"+27823235496"},
+	// 	Message: Message{
+	// 		Type: "text",
+	// 		Text: "Yah neh",
+	// 	},
+	// }
+
+	// jsonData, err := json.Marshal(data)
+	// if err != nil {
+	// 	fmt.Println("Error marshalling data:", err)
+	// 	return
+	// }
+
+	if err := c.BindJSON(&myparam); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
 	}
 
-	jsonData, err := json.Marshal(data)
+	jsonData, err := json.Marshal(myparam)
 	if err != nil {
-		fmt.Println("Error marshalling data:", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error marshalling data"})
 		return
 	}
 

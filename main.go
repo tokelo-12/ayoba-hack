@@ -1,9 +1,18 @@
 package main
 
+import (
+	"github.com/gin-gonic/gin"
+)
+
 func main() {
 	//auth
-	Login()
-	sendMsg()
+	// Login()
+
+	router := gin.Default()
+
+	router.POST("/sendtext", sendMsg)
+
+	router.Run("localhost:8080")
 
 	//refresh token after set time
 }
