@@ -57,7 +57,7 @@ func Login() (token, error) {
 		return token{}, err
 	}
 
-	fmt.Println(string(body))
+	// fmt.Println(string(body))
 
 	var Access token
 
