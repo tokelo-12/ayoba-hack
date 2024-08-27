@@ -34,8 +34,4 @@ The server exposes the following API endpoints:
 ### GET /gettext: Retrieves any unread messages from the Ayoba platform.
 
 
-API Endpoints
-The server exposes the following API endpoints:
 
-POST /send_message: Accepts a JSON payload containing the message content and recipient's Ayoba ID.
-GET /receive_messages: Retrieves any unread messages from the Ayoba platform.
