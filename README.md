@@ -27,6 +27,13 @@ Parses the received messages and extracts relevant information.
 Processes the messages based on their content and type.
 Responds to the sender if necessary.
 
+## API Endpoints
+The server exposes the following API endpoints:
+
+### POST /sendtext: Accepts a JSON payload containing the message content and recipient's Ayoba ID.
+### GET /gettext: Retrieves any unread messages from the Ayoba platform.
+
+
 API Endpoints
 The server exposes the following API endpoints:
 
