@@ -1,3 +1,5 @@
+### Note : username and password in the code were created specifically for the hackathon and are now invalid or expired.
+
 # Ayoba Business Chat API Hackathon Project Documentation
 Project Overview
 This document provides a detailed overview of the Golang server developed for the Ayoba Business Chat API Hackathon. The server was designed to interact with the Ayoba platform, sending and receiving messages to an Ayoba app user.
